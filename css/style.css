@@ -96,7 +96,8 @@ ul, ol{
 	webkit-padding: 0;
 	moz-padding: 0;
 }
-/* Navigation */
+
+/* Start Navigation Section*/
 #tf-menu {
 	padding: 20px;
 	transition: all 0.8s;
@@ -141,13 +142,14 @@ font-weight: 900;
 .navbar-default .navbar-toggle:hover>.icon-bar {
 	background-color: #FFF;
 	}
-/* Home Style */
+
+/* End Navigation Section*/
+
+
+/* Start Home Section */
 #tf-home{
-	background: url(../img/bg/bg.jpg);
+	background: url(../img/bg/bg.jpg)center center fixed no-repeat;
 	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
 	color: #cfcfcf;
 }
 
@@ -189,7 +191,62 @@ a.fa.fa-angle-down:hover{
 	color: #ffffff;
 	border: 2px solid #27ae60;
 }
-/* About Section */
+/* End Home Section */
+
+/*Start Search Section*/
+#tf-search
+{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: #222;
+    color: #fff;
+}
+
+#tf-search .input-group .icon-addon .form-control {
+    border-radius: 0;
+}
+
+#tf-search .icon-addon {
+    position: relative;
+    color: #555;
+    display: block;
+}
+
+#tf-search .icon-addon:after,
+.icon-addon:before {
+    display: table;
+    content: " ";
+}
+
+#tf-search .icon-addon:after {
+    clear: both;
+}
+
+#tf-search .icon-addon.addon-md .glyphicon,
+.icon-addon .glyphicon,
+.icon-addon.addon-md .fa,
+.icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 14px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 5px
+}
+
+#tf-search .icon-addon.addon-lg .form-control {
+    line-height: 1.33;
+    height: 46px;
+    font-size: 18px;
+    padding: 10px 16px 10px 40px;
+}
+
+/*End Search Section*/
+
+/* Start About Section */
 #tf-about
 {
 	padding: 80px 0;
@@ -213,7 +270,7 @@ ul.about-list li span{
 
 /* End About Section */
 
-/* Services Section */
+/* Start Services Section */
 #tf-map{
 	padding: 80px 0;
     background: #222222;
@@ -343,8 +400,10 @@ ol.type li a.active { font-weight: 700; }
 	color: #27ae60;
 }
 
+/*End Gallery Section*/
 
-/* Testimonials Section */
+
+/* Start Testimonials Section */
 #tf-testimonials{
 	background: url(../img/05.jpg);
 	background-size: cover;
@@ -379,7 +438,9 @@ ol.type li a.active { font-weight: 700; }
 	margin: 30px 0;
 	color: #d1d1d1;
 }
-/* Contact Section */
+/* End Testimonials Section */
+
+/* Start Contact Section */
 #tf-contact{
 	padding: 80px 0;
 }
@@ -442,7 +503,9 @@ button.btn.tf-btn.btn-default {
 	outline: none;
 	outline-offset: none;
 }
-/* Footer */
+/* End Contact Section */
+
+/* Start Footer Section*/
 nav#footer{
 	background: #222222;
 	color: #ffffff;
@@ -467,7 +530,9 @@ nav#footer p{
 	color: #8c8c8c;
 	transition: all 0.5s;
 }
-#footer i.fa:hover{
-	background: #27ae60;
-	border-color: #27ae60;
-	color: #ffffff;
+#footer i.fa:hover {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: #ffffff;
+}
+/* End Footer Section*/
