@@ -44,41 +44,16 @@ function main() {
     })
 
   	$(document).ready(function() {
-  	  $("#team").owlCarousel({
-  	 
-  	      navigation : false, // Show next and prev buttons
-  	      slideSpeed : 300,
-  	      paginationSpeed : 400,
-  	      autoHeight : true,
-  	      itemsCustom : [
-				        [0, 1],
-				        [450, 2],
-				        [600, 2],
-				        [700, 2],
-				        [1000, 4],
-				        [1200, 4],
-				        [1400, 4],
-				        [1600, 4]
-				      ],
-  	  });
 
-  	  $("#clients").owlCarousel({
-  	 
-  	      navigation : false, // Show next and prev buttons
-  	      slideSpeed : 300,
-  	      paginationSpeed : 400,
-  	      autoHeight : true,
-  	      itemsCustom : [
-				        [0, 1],
-				        [450, 2],
-				        [600, 2],
-				        [700, 2],
-				        [1000, 4],
-				        [1200, 5],
-				        [1400, 5],
-				        [1600, 5]
-				      ],
-  	  });
+        $("#carousel").owlCarousel({
+
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+            items : 4,
+            itemsDesktop : [1199,3],
+            itemsDesktopSmall : [979,3]
+
+        });
 
       $("#testimonial").owlCarousel({
         navigation : false, // Show next and prev buttons
@@ -119,6 +94,89 @@ function main() {
 
     });
 
+    // Card
+    $(window).load(function() {
+        $('.post-module').hover(function() {
+            $(this).find('.description').stop().animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, 300);
+        });
+    });
+
+    // City page places portfolio
+    $(document).ready(function(){
+
+        $(".filter-button").click(function(){
+            var value = $(this).attr('data-filter');
+
+            if(value == "all")
+            {
+                //$('.filter').removeClass('hidden');
+                $('.filter').show('1000');
+            }
+            else
+            {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+                $(".filter").not('.'+value).hide('3000');
+                $('.filter').filter('.'+value).show('3000');
+
+            }
+        });
+
+        if ($(".filter-button").removeClass("active")) {
+            $(this).removeClass("active");
+        }
+        $(this).addClass("active");
+
+    });
+
+    //Home page portfolio card
+    $(document).ready(function(){
+        var zindex = 10;
+
+        $("div.card").click(function(e){
+            e.preventDefault();
+
+            var isShowing = false;
+
+            if ($(this).hasClass("show")) {
+                isShowing = true
+            }
+
+            if ($("div.cards").hasClass("showing")) {
+                // a card is already in view
+                $("div.card.show")
+                    .removeClass("show");
+
+                if (isShowing) {
+                    // this card was showing - reset the grid
+                    $("div.cards")
+                        .removeClass("showing");
+                } else {
+                    // this card isn't showing - get in with it
+                    $(this)
+                        .css({zIndex: zindex})
+                        .addClass("show");
+
+                }
+
+                zindex++;
+
+            } else {
+                // no cards in view
+                $("div.cards")
+                    .addClass("showing");
+                $(this)
+                    .css({zIndex:zindex})
+                    .addClass("show");
+
+                zindex++;
+            }
+
+        });
+    });
 
 
 }());

@@ -1,6 +1,6 @@
 
 var iconColor = "rgba(44, 62, 80, 0.8)";
-AmCharts.makeChart("map",{
+var map = AmCharts.makeChart("map",{
     "type": "map",
     "pathToImages": "http://www.amcharts.com/lib/3/images/",
     "addClassNames": true,
@@ -194,4 +194,9 @@ AmCharts.makeChart("map",{
         "draggerAlpha": 1,
         "buttonCornerRadius": 2
     }
+});
+
+// Adding listener to the map
+map.addListener("clickMapObject", function(event) {
+    location.href = "city_details.html";
 });
