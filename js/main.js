@@ -132,50 +132,42 @@ function main() {
 
     });
 
-    //Home page portfolio card
-    $(document).ready(function(){
-        var zindex = 10;
+    // -----------------Animations (using superscrollorama plugin)------------
+    $(document).ready(function() {
+        var controller = $.superscrollorama();
 
-        $("div.card").click(function(e){
-            e.preventDefault();
+        // Portfolio
+        controller.addTween('#portfolio>h2', TweenMax.fromTo($('#portfolio>h2'), .3, {
+            css: {
+                opacity: 0,
+                'letter-spacing': '40px'
+            },
+            immediateRender: true,
+            ease: Quad.easeInOut
+        }, {
+            css: {
+                opacity: 1,
+                'letter-spacing': '0px'
+            },
+            ease: Quad.easeInOut
+        }), 0, -50);
+        $('#portfolio  .item').css('position', 'relative').each(function() {
 
-            var isShowing = false;
-
-            if ($(this).hasClass("show")) {
-                isShowing = true
-            }
-
-            if ($("div.cards").hasClass("showing")) {
-                // a card is already in view
-                $("div.card.show")
-                    .removeClass("show");
-
-                if (isShowing) {
-                    // this card was showing - reset the grid
-                    $("div.cards")
-                        .removeClass("showing");
-                } else {
-                    // this card isn't showing - get in with it
-                    $(this)
-                        .css({zIndex: zindex})
-                        .addClass("show");
-
-                }
-
-                zindex++;
-
-            } else {
-                // no cards in view
-                $("div.cards")
-                    .addClass("showing");
-                $(this)
-                    .css({zIndex:zindex})
-                    .addClass("show");
-
-                zindex++;
-            }
-
+            controller.addTween('#portfolio>h2', TweenMax.from($(this), 1.5, {
+                delay: Math.random() * .2,
+                css: {
+                    left: Math.random() * 200 - 100,
+                    top: Math.random() * 200 - 100,
+                    opacity: 0
+                },
+                ease: Back.easeOut
+            }));
         });
+    });
+
+    // Initialize Portfolio
+    $("#port-items").diamonds({
+        itemSelector: ".item-d"
     });
 
 
